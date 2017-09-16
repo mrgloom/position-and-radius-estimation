@@ -182,10 +182,10 @@ def evaluate_model():
         y_pred= model.predict(img[None,...])[0]
         
         objects= []
-        for i in range(max_number_of_objects):
-            y= int(y_pred[i])
-            x= int(y_pred[i+1])
-            radius= int(y_pred[i+2])
+        for j in range(max_number_of_objects):
+            y= int(y_pred[j])
+            x= int(y_pred[j+1])
+            radius= int(y_pred[j+2])
             if(y > 1 and x > 1 and radius > 1):
                 print('y',y,'x',x,'radius',radius)
                 objects.append((y,x,radius))
@@ -193,10 +193,10 @@ def evaluate_model():
         print('n_objects', len(objects))
       
         img_pred= np.copy(img)
-        for i in range(len(objects)):
-            y= objects[i][0]
-            x= objects[i][1]
-            radius= objects[i][2]
+        for j in range(len(objects)):
+            y= objects[j][0]
+            x= objects[j][1]
+            radius= objects[j][2]
             cv2.circle(img_pred, (x,y), radius, (0,0,255), 1)
         
         cv2.imwrite(os.path.join('generated_samples','sample_'+str(i)+'.png'),img)
