@@ -1,4 +1,5 @@
-# position-and-radius-estimation
+# position-and-radius-estimation-example
+
 Toy example of position and radius estimation.
 
 1.Simple CNN can't solve this task.
